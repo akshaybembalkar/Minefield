@@ -50,8 +50,21 @@ FieldType Field::get(int x, int y)
 **/
  bool Field::isSafe(int x, int y)
  {
- 	//TODO: Complete this function, isSafe(int,int)
- 	return true;
+ try{
+	if(x>10 || y>10 || x<0 || y<0)
+	{
+		throw "Illegal Location";
+	}
+	else if(_map[x][y] == MINE_HIDDEN || _map[x][y] == MINE_SHOWN){
+ 		return false;
+	}
+	else{
+		return true;
+	}
+	}catch(...)
+	{
+		std::cout<<"Illegal Location"<<std::endl;
+	}
  }
 
 /**
